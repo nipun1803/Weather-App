@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* Body with Smooth Background Transition */
+
 body {
     background: linear-gradient(135deg, #00feba, #5b548a);
     transition: background 0.5s ease-in-out;
@@ -17,7 +17,7 @@ body {
     padding: 20px;
 }
 
-/* Weather Card */
+
 .card {
     width: 100%;
     max-width: 480px;
@@ -30,7 +30,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Search Bar */
+
 .search {
     display: flex;
     align-items: center;
@@ -69,7 +69,7 @@ body {
     width: 20px;
 }
 
-/* Error Message */
+
 .error {
     display: none;
     background: rgba(255, 0, 0, 0.2);
@@ -80,7 +80,7 @@ body {
     font-size: 16px;
 }
 
-/* Weather Display */
+
 .weather {
     display: none;
 }
@@ -90,7 +90,7 @@ body {
     margin: 20px 0;
 }
 
-/* Temperature and City */
+
 .weather h1 {
     font-size: 72px;
     font-weight: 600;
@@ -103,7 +103,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Temperature Toggle */
+
 .temp-toggle {
     display: inline-block;
     padding: 8px 15px;
@@ -122,7 +122,7 @@ body {
     background: #ff9800;
 }
 
-/* Weather Details */
+
 .details {
     display: flex;
     align-items: center;

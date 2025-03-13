@@ -4,9 +4,9 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const searchBox = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-button");
 const icon = document.querySelector(".weather-icon");
-const tempUnitToggle = document.querySelector(".temp-toggle"); // Toggle Button
+const tempUnitToggle = document.querySelector(".temp-toggle"); 
 
-// Function to fetch weather data
+
 async function checkWeather(city) {
     try {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -20,18 +20,10 @@ async function checkWeather(city) {
             document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
-
-            // Display current date and time
             const localTime = new Date((data.dt + data.timezone) * 1000);
             document.querySelector(".datetime").innerHTML = localTime.toLocaleString();
-
-            // Change background based on weather
             changeBackground(data.weather[0].main);
-
-            // Update Weather Icon
             updateWeatherIcon(data.weather[0].main);
-
-            // Show weather details
             document.querySelector(".weather").style.display = "block";
             document.querySelector(".error").style.display = "none";
         }
@@ -42,7 +34,6 @@ async function checkWeather(city) {
     }
 }
 
-// Function to change background color based on weather
 function changeBackground(weather) {
     const body = document.body;
     if (weather.includes("Clear")) {
@@ -58,11 +49,11 @@ function changeBackground(weather) {
     }
 }
 
-// Function to update weather icon
-function updateWeatherIcon(weather) {
-    let weatherCondition = weather.toLowerCase(); // Convert to lowercase for consistency
 
-    console.log("Weather Condition:", weatherCondition); // Debugging
+function updateWeatherIcon(weather) {
+    let weatherCondition = weather.toLowerCase(); 
+
+    console.log("Weather Condition:", weatherCondition); 
 
     if (weatherCondition.includes("cloud")) {
         icon.src = "images/clouds.png";
@@ -75,11 +66,11 @@ function updateWeatherIcon(weather) {
     } else if (weatherCondition.includes("clear")) {
         icon.src = "images/clear.png";
     } else {
-        icon.src = "images/default.png"; // Default icon for unknown conditions
+        icon.src = "images/rain.png"; 
     }
 }
 
-// Function to convert temperature (°C ↔ °F)
+
 function toggleTemperature() {
     let tempText = document.querySelector(".temp").innerText;
     let tempValue = parseInt(tempText);
@@ -92,7 +83,7 @@ function toggleTemperature() {
     }
 }
 
-// Auto-detect user location
+
 async function getUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
@@ -112,19 +103,19 @@ async function getUserLocation() {
     }
 }
 
-// Search weather when button is clicked
+
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
 });
 
-// Search when "Enter" key is pressed
+
 searchBox.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         checkWeather(searchBox.value);
     }
 });
 
-// Toggle temperature unit when clicked
+
 tempUnitToggle.addEventListener("click", toggleTemperature);
 
 getUserLocation();
