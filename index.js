@@ -1,4 +1,3 @@
-const apiKey = "5136f7cf1e789e65092ce1b3d4267528";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 const searchBox = document.querySelector(".search-input");
@@ -9,7 +8,7 @@ const tempUnitToggle = document.querySelector(".temp-toggle");
 
 async function checkWeather(city) {
     try {
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        const response = await fetch(apiUrl + city + `&appid=5136f7cf1e789e65092ce1b3d4267528`);
         const data = await response.json();
 
         if (data.cod === "404") {
@@ -90,7 +89,7 @@ async function getUserLocation() {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=5136f7cf1e789e65092ce1b3d4267528`
             );
             const data = await response.json();
             checkWeather(data.name);
